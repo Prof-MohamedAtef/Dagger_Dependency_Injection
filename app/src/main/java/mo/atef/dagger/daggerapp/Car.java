@@ -1,15 +1,21 @@
 package mo.atef.dagger.daggerapp;
 
-public class Car {
-    Engine engine;
-    Wheels wheels;
+import android.util.Log;
 
-    Car(Engine engine, Wheels wheels){
-        this.engine=engine;
-        this.wheels=wheels;
+import javax.inject.Inject;
+
+public class Car {
+    private static final String TAG = "Car";
+    private Engine engine;
+    private Wheels wheels;
+
+    @Inject
+    public Car(Engine engine, Wheels wheels) {
+        this.engine = engine;
+        this.wheels = wheels;
     }
 
-    void drive(){
-        //Vroom...
+    public void drive(){
+        Log.d(TAG, "driving...");
     }
 }
