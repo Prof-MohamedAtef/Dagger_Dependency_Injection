@@ -4,13 +4,17 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
+import mo.atef.dagger.daggerapp.dublicates.Engine;
+
 public class Car {
     private static final String TAG = "Car";
-    @Inject Engine engine;
+    private Engine engine;
+
     private Wheels wheels;
 
     @Inject
-    public Car(Wheels wheels) {
+    public Car(mo.atef.dagger.daggerapp.dublicates.Engine engine, Wheels wheels) {
+        this.engine=engine;
         this.wheels = wheels;
     }
 
@@ -20,6 +24,7 @@ public class Car {
     }
 
     public void drive(){
+        engine.start();
         Log.d(TAG, "driving...");
     }
 }
